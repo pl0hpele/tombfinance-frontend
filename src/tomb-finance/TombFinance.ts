@@ -1,5 +1,5 @@
 // import { Fetcher, Route, Token } from '@uniswap/sdk';
-import { Fetcher as FetcherSpirit, Token as TokenSpirit } from '@spiritswap/sdk';
+import { Fetcher as FetcherSpirit, Token as TokenSpirit } from '@spiritswap-libs/sdk';
 import { Fetcher, Route, Token } from '@spookyswap/sdk';
 import { Configuration } from './config';
 import { ContractName, TokenStat, AllocationTime, LPStat, Bank, PoolStats } from './types';
@@ -180,6 +180,7 @@ export class TombFinance {
    * CirculatingSupply (always equal to total supply for bonds)
    */
   async getShareStat(): Promise<TokenStat> {
+
     const { TombFtmLPTShareRewardPool } = this.contracts;
 
     const supply = await this.TSHARE.totalSupply();
@@ -189,7 +190,7 @@ export class TombFinance {
     const tShareCirculatingSupply = supply.sub(tombRewardPoolSupply);
     const priceOfOneFTM = await this.getWFTMPriceFromPancakeswap();
     const priceOfSharesInDollars = (Number(priceInFTM) * Number(priceOfOneFTM)).toFixed(2);
-
+    
     return {
       tokenInFtm: priceInFTM,
       priceInDollars: priceOfSharesInDollars,
@@ -306,6 +307,9 @@ export class TombFinance {
    */
   async getDepositTokenPriceInDollars(tokenName: string, token: ERC20) {
     let tokenPrice;
+
+    //return '0.00';
+    
     const priceOfOneFtmInDollars = await this.getWFTMPriceFromPancakeswap();
     if (tokenName === 'WFTM') {
       tokenPrice = priceOfOneFtmInDollars;
@@ -387,6 +391,8 @@ export class TombFinance {
    * @returns price of the LP token
    */
   async getLPTokenPrice(lpToken: ERC20, token: ERC20, isTomb: boolean): Promise<string> {
+    //return '0'.toString();
+    
     const totalSupply = getFullDisplayBalance(await lpToken.totalSupply(), lpToken.decimal);
     //Get amount of tokenA
     const tokenSupply = getFullDisplayBalance(await token.balanceOf(lpToken.address), token.decimal);

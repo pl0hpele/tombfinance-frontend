@@ -10,7 +10,9 @@ const store = configureStore({
     application,
     transactions,
   },
-  middleware: [...getDefaultMiddleware({ thunk: false }), save({ states: PERSISTED_KEYS })],
+  //middleware: [...getDefaultMiddleware({ thunk: false }), save({ states: PERSISTED_KEYS })],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ thunk: false}).concat(save({ states: PERSISTED_KEYS })),
   preloadedState: load({ states: PERSISTED_KEYS }),
 });
 

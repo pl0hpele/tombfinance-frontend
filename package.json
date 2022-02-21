@@ -13,7 +13,7 @@
     "@pancakeswap-libs/sdk": "^1.0.1",
     "@pancakeswap/sdk": "^2.3.1",
     "@reduxjs/toolkit": "^1.4.0",
-    "@spiritswap/sdk": "https://github.com/Layer3Org/spiritswap-sdk",
+    "@spiritswap-libs/sdk": "^1.0.1",
     "@spookyswap/sdk": "https://github.com/SpookySwap/spookyswap-sdk",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

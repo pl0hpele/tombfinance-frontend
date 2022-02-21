@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import Page from '../../components/Page';
 import HomeImage from '../../assets/img/home.png';
-import CashImage from '../../assets/img/crypto_tomb_cash.svg';
+import CashImage from '../../assets/img/inv-t.png';
 import Image from 'material-ui-image';
 import { createGlobalStyle } from 'styled-components';
 import CountUp from 'react-countup';
@@ -27,8 +27,9 @@ import useTombFinance from '../../hooks/useTombFinance';
 
 const BackgroundImage = createGlobalStyle`
   body {
-    background: url(${HomeImage}) no-repeat !important;
-    background-size: cover !important;
+      /*background: url(${HomeImage}) no-repeat !important;
+    background-size: cover !important; */
+    background-color: #000000;
   }
 `;
 
@@ -138,11 +139,10 @@ const Home = () => {
         <Grid item xs={12} sm={8}>
           <Paper>
             <Box p={4}>
-              <h2>Welcome to Tomb Finance</h2>
+            <h2>Welcome to Invader Finance</h2>
               <p>The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage.</p>
               <p>
-                Stake your TSHARE in the Masonry to earn inflationary TOMB rewards or provide liquidity on pairs and
-                start earning today!
+                Insert $NVDR coins, help the Invaders take over the cryptoverse and earn $INVASION rewards!
               </p>
             </Box>
           </Paper>
